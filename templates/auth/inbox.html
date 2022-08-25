@@ -1,0 +1,115 @@
+{% extends '../folder_layout/layout.html' %}
+{% load static %}
+
+{% block banner_text %}
+    {% block title %}
+        Inbox
+    {% endblock %}
+{% endblock %}
+
+{% block extra_css %}
+<link href="{% static '/css/table.css' %}" rel="stylesheet" media="screen" />
+{% endblock %}
+
+{% block body %}
+<ul class="sidebar" id="sidebar">
+    <li id="test" class="sidebar_menu"><a href="{% url 'index' %}" class="btn active"><img src="/static/image/layout_img/envelope.png" alt="Inbox"
+          class="sidebar-logo"><span>Inbox</span></a></li>
+    <li class="sidebar_menu"><a href="{% url 'dashboard' %}" class="btn"><img src="/static/image/layout_img/chart-histogram.png" alt="Dashboard"
+          class="sidebar-logo"><span>Dashboard</span></a></li>
+    <li class="sidebar_menu"><a href="{% url 'history' %}" class="btn"><img src="/static/image/layout_img/book-alt.png" alt="History"
+          class="sidebar-logo"><span>History</span></a></li>
+    <!-- <ul class="sidebar_more"> -->
+      <!-- <li class="sidebar_menu"><a id="more_button" href="#" class="btn"><img src="/static/image/layout_img/arrow-square-down.png"
+            alt="More" class="sidebar-logo_more"><span id="test_more">More</span></a> -->
+    <li class="sidebar_menu"><a href="{% url 'contact' %}" class="btn"><img src="/static/image/layout_img/address-book.png" alt="ContactList"
+            class="sidebar-logo"><span>ContactList</span></a></li>
+      <!-- <li class="subsidebar"><a href="#" class="btn"><img src="/static/image/layout_img/calendar.png" alt="Calendar"
+            class="sidebar-logo"><span>Calender</span></a></li> -->
+    <!-- </ul> -->
+    <!-- </li> -->
+</ul>
+<div class="main" id="div_register">
+<div class="maincontent">
+    <div class="main_head">
+   <span style="font-size:200%;margin-left:22px;">Document</span><br>
+     </div>
+  <hr>
+   <div class="tablecontent" id="tablecontent">
+    <!-- <table id="example" class="table table-striped table-bordered"> -->
+    <table id="example" class="table table-striped table-bordered" style="width:100%;">
+        <thead>
+            <tr>
+                <th>Detail URL</th>
+                <th>Document Number</th>
+                <th>Title</th>
+                <th>Department</th>
+                <th>Requester</th>
+                <th>Request Date</th>
+                <th>Last Update</th>
+                <th>System</th>
+                <th>Document Status</th>
+                <th>Attachment</th>
+                <th>Approver</th>
+                <th>Action</th>
+                {% comment %} <th>Reject_btn</th> {% endcomment %}
+            </tr>
+        </thead>
+    </table>
+        <!-- 
+        // countdocStatus();
+        // $(document).ready(function () {
+        // setInterval( function() {
+        //     $("#example").load(location.href + " #example");
+        // }, 3000 );
+        // });
+
+        // setInterval(function() {
+        // buildList();
+        // }, 3000); -->
+          <!-- <thead>
+            <tr>
+                <th>Detail URL</th>
+                <th>Document Number</th>
+                <th>Title</th>
+                <th>Department</th>
+                <th>Requester</th>
+                <th>Request Date</th>
+                <th>Last Update</th>
+                <th>System</th>
+                <th>Document Status</th>
+                <th>Attachment</th>
+                <th>Approver</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for testRequest in all_Request %}
+            <tr>
+              <td><a href= {{ testRequest.detailUrl }} target="_blank"><img src="/static/image/file.png" style="width: 50px; height: 50px;"></a></td>
+              <td>{{ testRequest.docNumber }}</td>  
+              <td>{{ testRequest.title }}</td> 
+              <td>{{ testRequest.department }}</td>
+              <td>{{ testRequest.requester }}</td>
+              <td>{{ testRequest.requestDate }}</td>
+              <td>{{ testRequest.lastUpdate }}</td>
+              <td>{{ testRequest.system }}</td>
+              <td>{{ testRequest.docStatus }}</td> 
+              {%if testRequest.attachment == True %}:
+                <td>✔</td>
+              {% else %}:
+              <td>-</td>
+                {%endif%}
+              <td>{{ testRequest.approver }}</td>
+            </tr>
+            {% endfor %}
+        </tbody> -->
+    <!-- </table> -->
+    </div>
+</div>
+</div>
+<script>
+    // $( window ).load(function() {buildList() });
+    buildList('{{ status }}');
+</script>
+{% endblock %}
+

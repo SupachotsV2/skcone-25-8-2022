@@ -1,0 +1,103 @@
+{% extends '../folder_layout/layout.html' %}
+{% load static %}
+
+{% block banner_text %}
+    {% block title %}
+        Dashboard
+    {% endblock %}
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static '/css/style_chart.css' %}">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="{% static '/css/table.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<script src={% static "/java_scripts/chart1.js" %}></script> 
+<script src={% static "/java_scripts/chart2.js" %}></script> 
+{% endblock %}
+
+{% block body %}
+<ul class="sidebar" id="sidebar">
+    <li id="test" class="sidebar_menu"><a href="{% url 'index' %}" class="btn"><img src='/static/image/layout_img/envelope.png' alt="Inbox"
+                class="sidebar-logo"><span>Inbox</span></a></li>
+    <li class="sidebar_menu"><a href="{% url 'dashboard' %}" class="btn active"><img src='/static/image/layout_img/chart-histogram.png' alt="Dashboard"
+                class="sidebar-logo"><span>Dashboard</span></a></li>
+    <li class="sidebar_menu"><a href="{% url 'history' %}" class="btn"><img src="/static/image/layout_img/book-alt.png" alt="History"
+                class="sidebar-logo"><span>History</span></a></li>
+    <!-- <ul class="sidebar_more"> -->
+        <!-- <li class="sidebar_menu"><a id="more_button" href="#" class="btn"><img src="/static/image/layout_img/arrow-square-down.png"
+                    alt="More" class="sidebar-logo_more"><span id="test_more">More</span></a> -->
+        <li class="sidebar_menu"><a href="{% url 'contact' %}" class="btn"><img src="/static/image/layout_img/address-book.png" alt="ContactList"
+                    class="sidebar-logo"><span>ContactList</span></a></li>
+        <!-- <li class="subsidebar"><a href="#" class="btn"><img src="/static/image/layout_img/calendar.png" alt="Calendar"
+                    class="sidebar-logo"><span>Calender</span></a></li> -->
+    <!-- </ul> -->
+</ul>
+<!-- Side bar End -->
+<div class="main" id="div_register">
+    <div class="maincontent">
+        <div class="main_head">
+            <span style="font-size: 200%; margin-left: 22px;">My Dashboard</span><br>
+        </div>
+        <hr>
+        <div class="cards">
+            <div class="card" onclick="window.location='{% url 'index' %}';">
+            {% comment %} <div class="card" onclick="window.location='filterClick("")';"> {% endcomment %}
+                <div class="card-content">
+                    <div class="number1" id="allrequest">0</div>
+
+                    <div class="card-name">All Request</div>
+                </div>
+            </div>
+            <div class="card" onclick="window.location='{% url 'history' %}';">
+                <div class="card-content">
+                    <div class="number2" id="approvedrequest">0</div>
+                    <div class="card-name">Approved</div>
+                </div>
+            </div>
+            <div class="card" onclick="window.location='{% url 'history' %}';">
+                <div class="card-content">
+                    <div class="number3" id="rejectrequest">0</div>
+                    <div class="card-name">Reject</div>
+                </div>
+            </div>
+            <div class="card" onclick="window.location='{% url 'index' %}';">
+                <div class="card-content">
+                    <div class="number4" id="waitrequest">0</div>
+                    <div class="card-name">Wait Approve</div>
+                </div>
+            </div>
+        </div>
+        <div class="charts">
+            <div class="chart">
+                <h2>Number of Approval and Rejection of each systems</h2>
+                <div>
+                    <canvas id="bar"></canvas>
+                </div>
+            </div>
+            <div class="chart doughnut-chart">
+                <h2>Request for each Systems</h2>
+                <div>
+                    <canvas id="doughnut"></canvas>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<script src={% static "/java_scripts/chart1.js" %}></script> 
+<script src={% static "/java_scripts/chart2.js" %}></script>  -->
+<script>buildList_1();</script>
+<script>buildList_2();</script>
+{% comment %} <script>
+    function filterClick(status){
+        $.ajax({
+            type: "POST",
+            url: "{% url 'index' %}",
+            data: status,
+        })
+    }
+</script> {% endcomment %}
+{% endblock %}

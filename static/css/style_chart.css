@@ -1,0 +1,127 @@
+.cards {
+    width: 100%;
+    /* padding: 30px; */
+    padding-bottom: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    grid-gap: 20px;
+}
+
+.cards .card {
+    padding: 20px;
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* .cards .card :hover{
+    background-color: black;
+} */
+
+.cards :hover{
+    cursor: pointer;
+}
+
+/* .card :hover{
+    color:#fff;
+} */
+
+.number1 {
+    font-size: 40px;
+    font-weight: 500;
+    color: #00a8ab;
+    /* margin-left: 20px; */
+}
+
+.number2 {
+    font-size: 40px;
+    font-weight: 500;
+    color: #00a8ab;
+    /* margin-left: 20px; */
+}
+
+.number3 {
+    font-size: 40px;
+    font-weight: 500;
+    color: #00a8ab;
+    /* margin-left: 20px; */
+}
+
+.number4 {
+    font-size: 40px;
+    font-weight: 500;
+    color: #00a8ab;
+    /* margin-left: 20px; */
+}
+
+.card-name {
+    color: #888;
+    font-weight: 1000;
+    /* margin-left: 20px; */
+    /* margin-bottom: 10px; */
+}
+
+/* charts */
+
+.charts {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    padding: 0px;
+    /* padding-left: 30px;
+    padding-right: 30px; */
+}
+
+.chart {
+    background-color: #fff;
+    width: 99% !important;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.chart h2 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #666;
+    text-align: center
+}
+
+@media (max-width:880px) {
+    .cards {
+        width: 100%;
+        padding: 35px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    .charts {
+        grid-template-columns: 1fr;
+    }
+    .doughnut-chart {
+        padding: 50px;
+    }
+    #doughnut {
+        padding: 50px;
+    }
+}
+
+@media (max-width:500px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .doughnut-chart {
+        padding: 10px;
+    }
+    #doughnut {
+        padding: 0px;
+    }
+    .user {
+        width: 40px;
+        height: 40px;
+    }
+}

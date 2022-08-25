@@ -1,0 +1,82 @@
+{% extends '../folder_layout/layout.html' %}
+{% load static %}
+
+{% block banner_text %}
+    {% block title %}
+        Contact
+    {% endblock %}
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static '/css/table.css' %}">
+<link rel="stylesheet" href="{% static '/css/contact.css' %}">
+{% endblock %}
+
+{% block body %}
+<ul class="sidebar" id="sidebar">
+    <li id="test" class="sidebar_menu"><a href="{% url 'index' %}" class="btn"><img src='/static/image/layout_img/envelope.png' alt="Inbox"
+                class="sidebar-logo"><span>Inbox</span></a></li>
+    <li class="sidebar_menu"><a href="{% url 'dashboard' %}" class="btn"><img src='/static/image/layout_img/chart-histogram.png' alt="Dashboard"
+                class="sidebar-logo"><span>Dashboard</span></a></li>
+    <li class="sidebar_menu"><a href="{% url 'history' %}" class="btn"><img src="/static/image/layout_img/book-alt.png" alt="History"
+                class="sidebar-logo"><span>History</span></a></li>
+    <!-- <ul class="sidebar_more"> -->
+        <!-- <li class="sidebar_menu"><a id="more_button" href="#" class="btn"><img src="/static/image/layout_img/arrow-square-down.png"
+                    alt="More" class="sidebar-logo_more"><span id="test_more">More</span></a> -->
+        <li class="sidebar_menu"><a href="{% url 'contact' %}" class="btn active"><img src="/static/image/layout_img/address-book.png" alt="ContactList"
+                    class="sidebar-logo"><span>ContactList</span></a></li>
+        <!-- <li class="subsidebar"><a href="#" class="btn"><img src="/static/image/layout_img/calendar.png" alt="Calendar"
+                    class="sidebar-logo"><span>Calender</span></a></li> -->
+    <!-- </ul> -->
+</ul>
+<!-- Side bar End -->
+<div class="main" id="div_register">
+    <div class="maincontent">
+        <div class="main_head">
+            <span style="font-size: 200%; margin-left: 22px;">ContactList</span><br>
+        </div>
+    <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4 py-4">
+            <div class="col  d-flex align-items-stretch">
+                <div class="card">
+                    <img src="/static/image/contactlist/e-inven.png" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column">
+                        {% comment %} <h5 class="card-title" style="font-size: 170%; text-align:left;">e-Inventory</h5> {% endcomment %}
+                        <hr>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non ducimus molestias, modi iure error illo consectetur
+                            veritatis necessitatibus delectus Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non ducimus molestias, modi iure error illo consectetur
+                             praesentium eius obcaecati magnam modi placeat consectetur!
+                            </p>
+                        {% comment %} <button type="button" class="btn btn-outline-primary">Primary</button> {% endcomment %}
+                        <button class="btn text-light mt-auto align-self-start" type="button" onclick=" window.open('https://e-reservationdev.siamkubota.co.th/web/account/login','_blank')" style= "background:#00a8ab;">Go to Website</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex align-items-stretch">
+                <div class="card">
+                    <img src="/static/image/contactlist/e-pro.png" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column">
+                        {% comment %} <h5 class="card-title" style="font-size: 170%; text-align:left;">e-Procurement</h5> {% endcomment %}
+                        <hr>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non ducimus molestias, modi iure error illo consectetur
+                            veritatis necessitatibus delectus est harum! Cumque enim praesentium eius obcaecati magnam modi placeat consectetur!
+                            </p>
+                        <button class="btn text-light mt-auto align-self-start" type="button" onclick=" window.open('https://e-procurement-dev.siamkubota.co.th/web/dashboard','_blank')" style= "background:#00a8ab;">Go to Website</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex align-items-stretch">
+                <div class="card">
+                    <img src="/static/image/contactlist/MyDAS.png" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column">
+                        {% comment %} <h5 class="card-title" style="font-size: 170%; text-align:center;">MyDAS</h5> {% endcomment %}
+                        <hr>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non ducimus molestias, modi iure error illo consectetur
+                            veritatis necessitatibus delectus est harum! Cumque enim praesentium eius obcaecati magnam modi placeat consectetur!
+                            </p>
+                        <button class="btn text-light mt-auto align-self-start" type="button" onclick=" window.open('https://e-accounting-dev.siamkubota.co.th/web/#/login','_blank')" style= "background:#00a8ab;">Go to Website</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

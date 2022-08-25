@@ -1,0 +1,73 @@
+ table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow: scroll;
+  text-align:center;
+}
+
+th {
+  padding: 6px;
+  font-size: 14px;
+  border-right: 1px solid #000000;
+  /* width: 100%; */
+}
+div.tablecontent table thead tr th{
+  text-align: center;
+  justify-items: center;
+  /* justify-content: center; */
+}
+td{
+  padding:8px;
+}
+td a{
+  display:block;
+}
+
+thead {
+  background-color: #fdfdfd;
+  border: 1px solid #000000;
+}
+
+hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.maincontent {
+  margin-left: 15px;
+  /* margin-top: 15px; */
+  padding-top: 15px;
+  margin-right: 15px;
+  margin-bottom: 35px;
+}
+.maincontent .main_header {
+  margin-bottom: 20px;
+}
+.tablecontent {
+  margin-top: 20px;
+  /* overflow-x: scroll; */
+}
+::-webkit-scrollbar {
+  height: 10px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey; */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+.table thead th {
+  vertical-align: middle;
+  border-bottom: 2px solid #dee2e6;
+}
+
+
+div.dataTables_scrollHeadInner{
+  width: 100% !important;
+}
+
+table.table.table-striped.table-bordered.responsive.nowrap.no-footer.dataTable {
+    width: 100% !important;
+}

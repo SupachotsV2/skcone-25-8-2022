@@ -1,0 +1,31 @@
+{% extends '../content.html' %}
+
+{% block header %}
+    Call Graph - Get Users in Tenant
+{% endblock %}
+
+{% block text %}
+    {% if results and 'id' in results  %}
+        There are a total of <strong>{{ results.num_results }}</strong> users in your tenant. Showing
+        <strong>displayName</strong> and <strong>ID</strong> for up to 5 of them below.
+        <br>
+        <br>
+        <strong>.id</strong> <span style="float:right">{{ results.id }}</span>
+        <br>
+        <strong>.employeeId</strong> <span style="float:right">{{ results.employeeId }}</span>
+        <br>
+        <strong>.displayName</strong> <span style="float:right">{{ results.displayName }}</span>
+        <br>
+        <strong>.mail</strong> <span style="float:right">{{ results.mail }}</span>
+        <br>
+        <strong>.department</strong> <span style="float:right">{{ results.department }}</span>
+        <br>
+        <strong>.officeLocation</strong> <span style="float:right">{{ results.officeLocation }}</span>
+        <br>
+        <strong>.lastPasswordChangeDateTime</strong> <span style="float:right">{{ results.lastPasswordChangeDateTime }}</span>
+        <br>      
+    {% endif %}
+    <br>    
+    Click here to see your <a class="btn btn-info p-1" href="{% url 'index' %}">Sign-in Status</a>
+    or <a class="btn btn-info p-1" href="{% url 'token_details' %}">ID Token Details</a>
+{% endblock %}

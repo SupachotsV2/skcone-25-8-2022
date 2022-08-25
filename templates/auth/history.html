@@ -1,0 +1,104 @@
+{% extends '../folder_layout/layout.html' %}
+{% load static %}
+
+{% block banner_text %}
+    {% block title %}
+        History
+    {% endblock %}
+{% endblock %}
+
+{% block extra_css %}
+<link href="{% static '/css/table.css' %}" rel="stylesheet" media="screen" />
+{% endblock %}
+
+{% block body %}
+<ul class="sidebar" id="sidebar">
+    <li id="test" class="sidebar_menu"><a href="{% url 'index' %}" class="btn"><img src="/static/image/layout_img/envelope.png" alt="Inbox"
+          class="sidebar-logo"><span>Inbox</span></a></li>
+    <li class="sidebar_menu"><a href="{% url 'dashboard' %}" class="btn"><img src="/static/image/layout_img/chart-histogram.png" alt="Dashboard"
+          class="sidebar-logo"><span>Dashboard</span></a></li>
+    <li class="sidebar_menu"><a href="{% url 'history' %}" class="btn active"><img src="/static/image/layout_img/book-alt.png" alt="History"
+          class="sidebar-logo"><span>History</span></a></li>
+    <!-- <ul class="sidebar_more">
+      <li class="sidebar_menu"><a id="more_button" href="#" class="btn"><img src="/static/image/layout_img/arrow-square-down.png"
+            alt="More" class="sidebar-logo_more"><span id="test_more">More</span></a> -->
+      <li class="sidebar_menu"><a href="{% url 'contact' %}" class="btn"><img src="/static/image/layout_img/address-book.png" alt="ContactList"
+            class="sidebar-logo"><span>ContactList</span></a></li>
+      <!-- <li class="subsidebar"><a href="#" class="btn"><img src="/static/image/layout_img/calendar.png" alt="Calendar"
+            class="sidebar-logo"><span>Calender</span></a></li> -->
+    <!-- </ul> -->
+    <!-- </li> -->
+</ul>
+<div class="main" id="div_register">
+<div class="maincontent">
+    <div class="main_head">
+   <span style="font-size:200%;margin-left:22px;">History</span><br>
+     </div>
+  <hr>
+  <div class="tablecontent">
+    <table id="example" class="table table-striped table-bordered">
+      <thead>
+        <tr>
+            <!-- <th>Detail URL</th> -->
+            <th>Document Number</th>
+            <th>Title</th>
+            <th>System</th>
+            <th>Document Status</th>
+            <th>Department</th>
+            <th>Requester</th>  
+            <th>Request Date</th>
+            <th>Last Update</th>
+            <th>Attachment</th>
+            <!-- <th>Approver</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for testRequest in all_Request %}
+        <tr>
+          <!-- <td><a href= {{ testRequest.detailUrl }} target="_blank"><img src="/static/image/icons8-document-50.png"></a></td> -->
+          <td>{{ testRequest.docNumber }}</td>  
+          <td>{{ testRequest.title }}</td> 
+          <td>{{ testRequest.system }}</td>
+          {%if testRequest.docStatus == "approved" or testRequest.docStatus == "Approved" or testRequest.docStatus == "approve" or testRequest.docStatus == "Approve"%}:
+            <td><img src="/static/image/checked.png" style="width: 20px; height: 20px;"></td>
+          {%else%}:
+            <td><img src="/static/image/cancel.png" style="width: 20px; height: 20px;"></td>
+          {%endif%}
+          <td>{{ testRequest.department }}</td>
+          <td>{{ testRequest.requester }}</td>
+          <td>{{ testRequest.requestDate }}</td>
+          <td>{{ testRequest.lastUpdate }}</td> 
+          {%if testRequest.attachment == True %}:
+            <!-- <td><img src="/static/image/checked.png" style="width: 20px; height: 20px;"></td> -->
+            <td>✔</td>
+          {% else %}:
+          <!-- <td><img src="/static/image/cancel.png" style="width: 20px; height: 20px;"></td> -->
+          <td>-</td>
+          {%endif%}
+          <!-- <td>{{ testRequest.approver }}</td> -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+   </div>
+</div>
+</div>  
+{% endblock %}
+
+<!-- {% block footer %}
+
+    {% if request.identity_context_data.authenticated == False %}
+        <div id="wrapper">
+            <div id="left">
+                <svg id="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM0 8a8 8 0 1116 0A8 8 0 010 8zm11.78-1.72a.75.75 0 00-1.06-1.06L6.75 9.19 5.28 7.72a.75.75 0 00-1.06 1.06l2 2a.75.75 0 001.06 0l4.5-4.5z"></path></svg>
+            </div>
+            <div id="right">
+                Have you updated your app's <em>redirect URI</em> on <a target="_blank" href={{ aad_link }}>Azure Portal</a>?
+                <br>
+                <strong>redirect_uri</strong>: {{ redirect_uri_external_link }}
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %} -->
+

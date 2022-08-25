@@ -1,0 +1,29 @@
+{
+    "type": {
+        "client_type": "CONFIDENTIAL",
+        "authority_type": "SINGLE_TENANT",
+        "framework": "DJANGO"
+    },
+    "client": {
+        "client_id": "354b3536-f190-496d-8a97-bfe4dd9215f8",
+        "client_credential": "XCC8Q~jrI4KzCoRDskSzLNTUjs2BUmMRsY~6kcz7",
+        "authority": "https://login.microsoftonline.com/common"
+    },
+    "auth_request": {
+        "redirect_uri": null,
+        "scopes": [],
+        "response_type": "code"
+    },
+    "flask": null,
+    "django": {
+        "id_web_configs": "MS_ID_WEB_CONFIGS",
+        "auth_endpoints": {
+            "prefix": "auth",
+            "sign_in": "sign_in",
+            "edit_profile": "edit_profile",
+            "redirect": "redirect",
+            "sign_out": "sign_out",
+            "post_sign_out": "post_sign_out"
+        }
+    }
+}

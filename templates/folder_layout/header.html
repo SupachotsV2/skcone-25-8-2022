@@ -1,0 +1,54 @@
+<div class="header_left">
+  <a id="menu" class="hamburger_logo" href="#"><img src="/static/image/layout_img/menu-burger.png" alt="hamburger_Logo"
+      class="hamburger-logo" width="25" height="25" /></a>
+  <a class="SKCONE_logo" href="/"><img src="https://www.stframe.com/wp-content/uploads/2019/01/kubota-logo.jpg"
+      alt="SKC_Logo" class="headerleft-logo" width="120" height="25" /></a>
+</div>
+<div class="menu-icons">
+  <span>{{ request.identity_context_data.username }} </span>
+  <div class="picture_header display-this"><img
+        src="{{ pic_url }}" alt="Picture" class="picture-profile"
+        width="35" height="35" /></div>
+  <div class="picture_header display-this"><a id="triangle_head" href="#"><img
+        src="https://img.icons8.com/stickers/344/triangle-stroked.png" class="triangle_header" alt="Picture"
+        style="transform: rotate(180deg);" width="20px;" height="20px;" /></a>
+    <div class="try_head">
+      <a href="">
+        <p>Notification</p>
+      </a>
+      <a href="">
+        <p>Change Laguage</p>
+      </a>
+      <a href="">
+        <p>Exit</p>
+      </a>
+    </div>
+  </div>
+    <!-- <div class="picture_header"><a href="#"><img src="/static/image/layout_img/bell.png" alt="Notification" class="noti-logo" width="35"
+        height="35" /></a></div> -->
+  <div class="picture_header"><a href="#"><img src="/static/image/layout_img/thailand.png" alt="Flag" class="flag-logo" width="35"
+        height="35" /></a></div>
+  <div class="picture_header"><a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="/static/image/layout_img/logout.png" alt="Signout" class="signout-logo" width="35"
+        height="35" /></a></div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="/static/image/attention.png" style="width:30px; height:30px;" alt="Worning">&nbsp;&nbsp;&nbsp;&nbsp;
+        <h3>Are you leaving !!!</h3><br>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p style="text-align:left; font-size: 18px;">Select "Yes" below if you are ready to end your current session.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <a href="{% url 'sign_out' %}"><button type="button" class="btn btn-danger">Yes</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
